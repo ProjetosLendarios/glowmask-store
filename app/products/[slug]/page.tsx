@@ -232,8 +232,8 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             {product.reviews.map((review) => (
               <div key={review.id} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm">
-                    {review.avatar}
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-rose-100">
+                    <Image src={review.avatar} alt={review.author} fill className="object-cover" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{review.author}</p>
