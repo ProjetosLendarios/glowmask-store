@@ -3,9 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Star, Shield, Truck, RotateCcw, CheckCircle, Minus, Plus, ChevronRight, Zap } from "lucide-react";
-import { getProductBySlug } from "@/lib/products";
+import { getProductBySlug, getAllProducts } from "@/lib/products";
 import { useCart } from "@/components/CartContext";
 import { notFound } from "next/navigation";
+
+export function generateStaticParams() {
+  const products = getAllProducts();
+  return products.map((p) => ({
+    slug: p.slug,
+  }));
+}
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
   const product = getProductBySlug(params.slug);
