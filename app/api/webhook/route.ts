@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     // Dados do cliente para encomendar no fornecedor (Dropshipping)
     const customerEmail = session.customer_details?.email;
     const customerName = session.customer_details?.name;
-    const shippingDetails = session.shipping_details;
+    const shippingDetails = (session as any).shipping_details;
     
     console.log("💰 NOVO PAGAMENTO RECEBIDO!");
     console.log("Cliente:", customerName, customerEmail);
